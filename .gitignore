@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# next dev/build auto-writes these AI-agent instruction files; keep them out of the repo
+# auto-generated editor/agent config, not part of the project
 AGENTS.md
 CLAUDE.md
 .claude/
