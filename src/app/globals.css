@@ -6,7 +6,7 @@
   --color-bg-warm: #22201f;
   --color-fg: #eae7e0;
   --color-muted: #a9a499;
-  --color-dim: #7e7a70;
+  --color-dim: #918b7c;
   --color-line: rgba(255, 255, 255, 0.1);
   --color-line-2: rgba(255, 255, 255, 0.16);
   --color-gold: #dda94a;
@@ -98,24 +98,35 @@
   }
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.7s var(--ease-standard),
-    transform 0.7s var(--ease-standard);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+/*
+ * Scroll reveal is pure CSS (no JS, no IntersectionObserver): elements
+ * animate in via a scroll-driven animation timeline. Browsers without
+ * support for `animation-timeline` just render the content directly —
+ * a safe, accessible fallback rather than content stuck at opacity:0.
+ */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in 0.7s var(--ease-standard) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+
+  .reveal .bullet-ring {
+    animation: bullet-ring 1.4s var(--ease-standard) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
 }
 
-.reveal .bullet-ring {
-  opacity: 0;
-  transform: scale(0.6);
-}
-.reveal.is-visible .bullet-ring {
-  animation: bullet-ring 0.9s var(--ease-standard) 0.15s both;
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .grain-layer {
