@@ -112,8 +112,8 @@ export default function Home() {
       <Header variant="home" />
 
       <main id="top" className="relative z-[1]">
-        <section className="mx-auto grid min-h-screen max-w-[76rem] items-center px-[clamp(1.4rem,5vw,4rem)]">
-          <div className="grid grid-cols-1 items-center gap-[clamp(2rem,5vw,4rem)] pt-[8rem] pb-[2rem] max-[900px]:grid-cols-1 min-[901px]:grid-cols-[minmax(0,1.05fr)_minmax(0,.75fr)]">
+        <section className="mx-auto grid min-h-dvh max-w-[76rem] items-center px-[clamp(1.4rem,5vw,4rem)]">
+          <div className="grid grid-cols-1 items-center gap-[clamp(2rem,5vw,4rem)] pt-[6rem] pb-[2rem] max-[900px]:grid-cols-1 min-[901px]:pt-[8rem] min-[901px]:grid-cols-[minmax(0,1.05fr)_minmax(0,.75fr)]">
             <div>
               <div className="flex animate-[om-rise_.8s_cubic-bezier(.2,.7,.2,1)_both] items-center gap-[.6rem]">
                 <span className="h-[7px] w-[7px] rounded-full bg-gold shadow-[0_0_12px_rgba(221,169,74,.9)]" />
