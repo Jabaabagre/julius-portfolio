@@ -6,7 +6,15 @@ import { Reveal } from "@/components/reveal";
 import { NodeMotif } from "@/components/node-motif";
 import { ProjectRow } from "@/components/project-row";
 import { HabitItem } from "@/components/habit-item";
+import { ContactForm } from "@/components/contact-form";
 import { buildMetadata } from "@/lib/metadata";
+
+export const metadata = buildMetadata({
+  title: "Julius Abaabagre — Product & UX Design",
+  description:
+    "Product & UX designer turning complicated systems — feeds, permissions, states, edge cases — into experiences people can actually understand.",
+  path: "/",
+});
 
 const HABITS = [
   { title: "Understand the system", body: "Map how it works before any UI." },
@@ -97,13 +105,6 @@ const TESTIMONIALS = [
     project: "Convo",
   },
 ];
-
-export const metadata = buildMetadata({
-  title: "Julius Abaabagre — Product & UX Design",
-  description:
-    "Product & UX designer turning complicated systems — feeds, permissions, states, edge cases — into experiences people can actually understand.",
-  path: "/",
-});
 
 export default function Home() {
   return (
@@ -467,6 +468,40 @@ export default function Home() {
           <p className="mt-[clamp(2rem,4vw,3rem)] text-[.82rem] text-dim">
             Placeholder attributions — swap in real names, roles, and organisations before this goes live.
           </p>
+        </section>
+
+        <section
+          id="contact"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)] pb-[clamp(4rem,8vw,7rem)]"
+        >
+          <Reveal className="max-w-[30ch]">
+            <h2 className="text-balance font-display text-[clamp(2.2rem,5vw+0.4rem,4.4rem)] leading-[1.04] font-bold tracking-[-.03em] text-fg">
+              Have a complex product that needs to feel <span className="text-gold">simple</span>?
+            </h2>
+          </Reveal>
+          <Reveal className="mt-[1.8rem] max-w-[46ch]">
+            <p className="text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+              That&apos;s the work I like most. Tell me what you&apos;re building.
+            </p>
+          </Reveal>
+          <Reveal className="mt-[2.6rem] flex flex-wrap gap-[.8rem_2rem]" as="div">
+            <a
+              href="mailto:jabaabagre@gmail.com"
+              className="border-b border-[rgba(221,169,74,.34)] pb-[.2rem] font-display text-base font-semibold text-gold"
+            >
+              Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/julius-abaabagre-398141299/"
+              target="_blank"
+              rel="noopener"
+              className="border-b border-line-2 pb-[.2rem] font-display text-base font-medium text-fg transition-colors hover:border-gold hover:text-gold"
+            >
+              LinkedIn
+            </a>
+          </Reveal>
+
+          <ContactForm />
         </section>
       </main>
 
