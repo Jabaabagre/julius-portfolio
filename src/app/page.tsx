@@ -1,10 +1,102 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/reveal";
 import { NodeMotif } from "@/components/node-motif";
 import { ProjectRow } from "@/components/project-row";
+import { HabitItem } from "@/components/habit-item";
 import { buildMetadata } from "@/lib/metadata";
+
+const HABITS = [
+  { title: "Understand the system", body: "Map how it works before any UI." },
+  { title: "Find the real problem", body: "Operational pain is usually structure, not screens." },
+  { title: "Explore before committing", body: "Weigh the cost of each option, including the edges." },
+  {
+    title: "Design for the edge cases",
+    body: "Empty, error, permission and render states are where trust is won.",
+  },
+  {
+    title: "Work with the team",
+    body: "Design with the grain of what's buildable; keep the dev and stakeholder loop tight.",
+  },
+  { title: "Refine through feedback", body: "The first version is a hypothesis; real use shapes it." },
+];
+
+const EXPERIENCE = [
+  {
+    role: "Product & UX Designer",
+    org: "AmaliTech, Ghana — National Service",
+    period: "2025/2026",
+  },
+  {
+    role: "Public Relations Officer",
+    org: "Pax Romana — UTAS Local",
+    period: "2023/2024",
+  },
+  {
+    role: "Publicity Chairperson",
+    org: "National Union of Ghanaian Students (NUGS) — UTAS Local",
+    period: "2024/2025",
+  },
+];
+
+const SKILL_GROUPS = [
+  {
+    title: "Product & UX",
+    skills: [
+      "Product thinking",
+      "UX strategy",
+      "User flows",
+      "Information architecture",
+      "Interaction design",
+      "Usability",
+    ],
+  },
+  {
+    title: "UI & Visual",
+    skills: [
+      "Interface design",
+      "Visual hierarchy",
+      "Design systems",
+      "Responsive design",
+      "Prototyping",
+      "Motion",
+    ],
+    note: "Tools: Figma, plus a frontend background in HTML/CSS/JS.",
+  },
+  {
+    title: "Collaboration",
+    skills: [
+      "Developer collaboration",
+      "Design handoff",
+      "Design QA",
+      "Stakeholder communication",
+      "Documentation",
+    ],
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    quote:
+      "“Julius asks the question everyone else skipped. He came back with the four post types mapped out before anyone had asked for it, and the build got noticeably calmer from there.”",
+    name: "Product lead",
+    project: "Vicinity",
+  },
+  {
+    quote:
+      "“He hands over work you can actually build. States, empty cases, edge conditions — they were already in the file, so we spent our time shipping instead of guessing.”",
+    name: "Frontend engineer",
+    project: "Let's Eat",
+  },
+  {
+    quote:
+      "“The accessibility thinking was not an afterthought bolted on at review. It shaped the structure of the app, which is a much harder thing to do and a much better result.”",
+    name: "Design mentor",
+    project: "Convo",
+  },
+];
 
 export const metadata = buildMetadata({
   title: "Julius Abaabagre — Product & UX Design",
@@ -165,7 +257,217 @@ export default function Home() {
           />
         </section>
 
-        <section id="about" className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]" />
+        <section
+          id="about"
+          className="mt-[clamp(5rem,11vw,10rem)] border-y border-line bg-bg-warm"
+        >
+          <div className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] py-[clamp(4rem,9vw,8rem)]">
+            <Reveal
+              className="grid items-start gap-[clamp(2rem,5vw,4.5rem)]"
+              as="div"
+            >
+              <div
+                className="grid gap-[clamp(2rem,5vw,4.5rem)]"
+                style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}
+              >
+                <div>
+                  <div
+                    className="relative overflow-hidden rounded-2xl"
+                    style={{
+                      aspectRatio: "4 / 5",
+                      background:
+                        "radial-gradient(62% 52% at 50% 34%, rgba(221,169,74,.42) 0%, rgba(221,169,74,.12) 46%, rgba(24,23,28,0) 74%), #1E1C22",
+                    }}
+                  >
+                    <Image
+                      src="/images/julius-portrait.png"
+                      alt="Julius Abaabagre"
+                      fill
+                      sizes="(min-width: 768px) 40vw, 90vw"
+                      className="object-cover object-[center_bottom]"
+                      style={{ transform: "scale(1.1) translateY(5%)", transformOrigin: "center bottom" }}
+                    />
+                  </div>
+                  <div className="mt-[1.1rem] font-display text-[1.05rem] font-semibold tracking-[-.01em] text-fg">
+                    Julius Abaabagre
+                  </div>
+                  <div className="mt-[.3rem] font-display text-[.82rem] font-medium tracking-[.12em] text-dim uppercase">
+                    Product &amp; UX Designer
+                  </div>
+                </div>
+                <div className="max-w-[66ch]">
+                  <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+                    About
+                  </div>
+                  <p className="mt-[1.2rem] text-pretty font-accent text-[clamp(1.5rem,2.4vw,2.1rem)] leading-[1.28] font-normal text-fg italic">
+                    Hi — I&apos;m Julius. I like making complicated things easier to use.
+                  </p>
+                  <p className="mt-8 text-pretty text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+                    My route into design wasn&apos;t a straight line, and I think
+                    that&apos;s the point. I studied computer science and learned
+                    frontend development first, so I&apos;ve always been close to how
+                    software actually gets built. Then came graphic design — and
+                    that&apos;s where I learned to really see: composition, type,
+                    hierarchy, and the craft of making something read clearly.
+                  </p>
+                  <p className="mt-[1.4rem] text-pretty text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+                    That graphic-design eye is a big part of why my UI/UX work has
+                    grown the way it has — a lot of what I lean on in product design,
+                    I first learned laying out a page. Pulling those threads
+                    together gives me an engineer&apos;s sense of what&apos;s
+                    buildable, a designer&apos;s eye for craft, and an instinct to
+                    find the structure underneath — which tends to mean{" "}
+                    <strong className="font-semibold text-fg">
+                      calmer handoffs and interfaces that respect the systems
+                      beneath them
+                    </strong>
+                    .
+                  </p>
+                  <p className="mt-[1.4rem] text-pretty text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+                    What I&apos;m drawn to is the complex, unglamorous end of
+                    product design — internal tools and operational software,
+                    where clarity quietly saves people time all day. My instinct
+                    is to reduce: to find the structure that makes a complicated
+                    thing feel obvious, and to sweat the states and edge cases
+                    most people skip.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section
+          id="how"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
+        >
+          <Reveal className="max-w-[44ch]">
+            <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+              How I work
+            </div>
+            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+              Six habits I lean on when a product gets complicated.
+            </h2>
+          </Reveal>
+          <div
+            className="mt-[clamp(3rem,6vw,4.5rem)] grid gap-[clamp(2rem,4vw,3.5rem)_clamp(2rem,4vw,3rem)]"
+            style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}
+          >
+            {HABITS.map((habit, i) => (
+              <HabitItem key={habit.title} n={i + 1} title={habit.title} body={habit.body} />
+            ))}
+          </div>
+        </section>
+
+        <section
+          id="experience"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
+        >
+          <Reveal>
+            <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+              Experience
+            </div>
+          </Reveal>
+          <Reveal as="div" className="mt-[clamp(2rem,4vw,3rem)] grid">
+            {EXPERIENCE.map((job, i) => (
+              <div
+                key={job.role}
+                className={`border-t border-line py-[clamp(1.8rem,3vw,2.4rem)] ${
+                  i === EXPERIENCE.length - 1 ? "border-b" : ""
+                }`}
+              >
+                <div
+                  className="grid items-baseline gap-[.6rem_clamp(1.5rem,3vw,2.5rem)]"
+                  style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}
+                >
+                  <h3 className="font-display text-[1.35rem] font-semibold tracking-[-.02em] text-fg">
+                    {job.role}
+                  </h3>
+                  <div className="text-base text-muted">{job.org}</div>
+                  <div className="text-[.9rem] text-dim">{job.period}</div>
+                </div>
+              </div>
+            ))}
+          </Reveal>
+        </section>
+
+        <section
+          id="skills"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
+        >
+          <Reveal>
+            <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+              Skills
+            </div>
+          </Reveal>
+          <Reveal
+            as="div"
+            className="mt-[clamp(2rem,4vw,3rem)] grid gap-[clamp(2rem,4vw,3rem)]"
+          >
+            <div
+              className="grid gap-[clamp(2rem,4vw,3rem)]"
+              style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}
+            >
+              {SKILL_GROUPS.map((group) => (
+                <div key={group.title}>
+                  <h3 className="mb-[1.1rem] font-display text-[1.2rem] font-semibold tracking-[-.02em] text-fg">
+                    {group.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-[.55rem]">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-line px-[.8rem] py-[.35rem] text-[.9rem] text-muted"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                  {group.note && (
+                    <p className="mt-4 text-[.85rem] leading-[1.6] text-dim">{group.note}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        <section
+          id="words"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
+        >
+          <Reveal className="max-w-[44ch]">
+            <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+              In their words
+            </div>
+            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+              What it&apos;s like to work with me.
+            </h2>
+          </Reveal>
+          <div
+            className="mt-[clamp(2.5rem,5vw,4rem)] grid gap-[clamp(2rem,4vw,3.2rem)]"
+            style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}
+          >
+            {TESTIMONIALS.map((t) => (
+              <Reveal
+                key={t.name}
+                as="figure"
+                className="!m-0 border-t border-line pt-[clamp(1.6rem,3vw,2.2rem)]"
+              >
+                <blockquote className="text-pretty font-accent text-[clamp(1.1rem,1.4vw,1.32rem)] leading-[1.42] text-fg italic">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-[1.2rem] font-display text-[.88rem] text-fg">
+                  {t.name}
+                  <span className="mt-[.2rem] block text-[.82rem] text-dim">{t.project}</span>
+                </figcaption>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-[clamp(2rem,4vw,3rem)] text-[.82rem] text-dim">
+            Placeholder attributions — swap in real names, roles, and organisations before this goes live.
+          </p>
+        </section>
       </main>
 
       <Footer />
