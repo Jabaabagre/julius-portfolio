@@ -1,53 +1,165 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 
 const TEXT = "ABAABAGRE";
-
-const textClass =
-  "block w-full select-none whitespace-nowrap font-display text-[16vw] leading-none font-extrabold tracking-[-0.03em]";
+const H = 152;
+const RADIUS = 230;
 
 export function WordmarkSpotlight() {
-  const wrapRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(false);
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const gradId = `wmspot-${uid}`;
+  const maskId = `wmmask-${uid}`;
+
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const textRef = useRef<SVGTextElement | null>(null);
+  const gradRef = useRef<SVGRadialGradientElement | null>(null);
+  const rectRef = useRef<SVGRectElement | null>(null);
+  const maskRef = useRef<SVGMaskElement | null>(null);
 
   useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const svg = svgRef.current;
+    const text = textRef.current;
+    const grad = gradRef.current;
+    const rect = rectRef.current;
+    const mask = maskRef.current;
+    if (!svg || !text || !grad || !rect || !mask) return;
+
+    // Fit the viewBox (and the mask's own bounding box) to the text's
+    // actual rendered width. The mask element has its own width/height —
+    // if it isn't kept in sync with the text, anything beyond the mask's
+    // box is treated as fully clipped, which is what caused a hard seam
+    // partway through the word.
+    const fit = () => {
+      const w = Math.round(text.getComputedTextLength());
+      if (!w) return;
+      svg.setAttribute("viewBox", `0 0 ${w} ${H}`);
+      rect.setAttribute("width", String(w));
+      mask.setAttribute("width", String(w));
+      grad.setAttribute("cy", String(H / 2));
+    };
+    fit();
+    if (document.fonts?.ready) document.fonts.ready.then(fit);
+    window.addEventListener("resize", fit);
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!fine || reduced) return;
+    if (reduced) {
+      return () => window.removeEventListener("resize", fit);
+    }
+
+    let raf = 0;
+    let tx = -400;
+    let ty = H / 2;
+    let cx = -400;
+    let cy = H / 2;
+    let tr = 0;
+    let r = 0;
+    let inside = false;
+
+    const loop = () => {
+      cx += (tx - cx) * 0.18;
+      cy += (ty - cy) * 0.18;
+      r += (tr - r) * 0.14;
+      grad.setAttribute("cx", cx.toFixed(1));
+      grad.setAttribute("cy", cy.toFixed(1));
+      grad.setAttribute("r", Math.max(0, r).toFixed(1));
+      if (Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4 || Math.abs(tr - r) > 0.4) {
+        raf = requestAnimationFrame(loop);
+      } else {
+        raf = 0;
+      }
+    };
+    const kick = () => {
+      if (!raf) raf = requestAnimationFrame(loop);
+    };
 
     const onMove = (e: PointerEvent) => {
-      const bb = el.getBoundingClientRect();
-      const pad = 80;
+      const bb = svg.getBoundingClientRect();
+      if (!bb.width || !bb.height) return;
+      const pad = 40;
       const hit =
         e.clientX >= bb.left - pad &&
         e.clientX <= bb.right + pad &&
         e.clientY >= bb.top - pad &&
         e.clientY <= bb.bottom + pad;
-      setActive(hit);
+      if (!hit) {
+        if (inside) {
+          inside = false;
+          tr = 0;
+          kick();
+        }
+        return;
+      }
+      const vb = svg.viewBox.baseVal;
+      const nx = ((e.clientX - bb.left) / bb.width) * (vb.width || 1000);
+      const ny = ((e.clientY - bb.top) / bb.height) * (vb.height || H);
+      if (!inside) {
+        inside = true;
+        cx = nx;
+        cy = ny;
+      }
+      tx = nx;
+      ty = ny;
+      tr = RADIUS;
+      kick();
     };
 
     document.addEventListener("pointermove", onMove, { passive: true });
-    return () => document.removeEventListener("pointermove", onMove);
+
+    return () => {
+      window.removeEventListener("resize", fit);
+      document.removeEventListener("pointermove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     <div
-      ref={wrapRef}
       aria-hidden="true"
       className="relative mt-[clamp(3rem,7vw,6rem)] w-full overflow-hidden pb-[clamp(1rem,3vw,2rem)]"
     >
-      <span className={textClass} style={{ color: "#444444" }}>
-        {TEXT}
-      </span>
-      <span
-        className={`${textClass} pointer-events-none absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(.2,.7,.2,1)]`}
-        style={{ color: "#D3A248", opacity: active ? 1 : 0 }}
+      <svg
+        ref={svgRef}
+        viewBox="0 0 1000 152"
+        className="block h-auto w-full"
+        preserveAspectRatio="xMinYMid meet"
       >
-        {TEXT}
-      </span>
+        <defs>
+          <radialGradient ref={gradRef} id={gradId} gradientUnits="userSpaceOnUse" cx="-400" cy="76" r="0">
+            <stop offset="0" stopColor="#fff" stopOpacity="1" />
+            <stop offset=".55" stopColor="#fff" stopOpacity=".6" />
+            <stop offset="1" stopColor="#fff" stopOpacity="0" />
+          </radialGradient>
+          <mask ref={maskRef} id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height={H}>
+            <rect ref={rectRef} x="0" y="0" width="1000" height={H} fill={`url(#${gradId})`} />
+          </mask>
+        </defs>
+        <text
+          ref={textRef}
+          x="0"
+          y="132"
+          fontFamily="var(--font-display), ui-sans-serif, system-ui, sans-serif"
+          fontWeight="800"
+          fontSize="190"
+          letterSpacing="-5"
+          fill="#444444"
+        >
+          {TEXT}
+        </text>
+        <g mask={`url(#${maskId})`}>
+          <text
+            x="0"
+            y="132"
+            fontFamily="var(--font-display), ui-sans-serif, system-ui, sans-serif"
+            fontWeight="800"
+            fontSize="190"
+            letterSpacing="-5"
+            fill="#D3A248"
+          >
+            {TEXT}
+          </text>
+        </g>
+      </svg>
     </div>
   );
 }
