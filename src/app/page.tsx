@@ -143,27 +143,26 @@ export default function Home() {
                   About me
                 </Link>
               </div>
+              <div className="mt-[3.5rem] flex items-center gap-3">
+                <span className="h-[34px] w-px bg-gradient-to-b from-gold to-transparent" />
+                <span className="font-display text-[.72rem] font-medium tracking-[.16em] text-dim uppercase">
+                  Scroll
+                </span>
+              </div>
             </div>
             <NodeMotif />
           </div>
         </section>
 
-        <div className="mx-auto flex items-center gap-3 px-[clamp(1.4rem,5vw,4rem)] pb-6">
-          <span className="h-[34px] w-px bg-gradient-to-b from-gold to-transparent" />
-          <span className="font-display text-[.72rem] font-medium tracking-[.16em] text-dim uppercase">
-            Scroll
-          </span>
-        </div>
-
         <section
           id="work"
           className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
         >
-          <Reveal className="max-w-[44ch]">
+          <Reveal>
             <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
               Selected work
             </div>
-            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+            <h2 className="mt-4 max-w-[44ch] text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
               Fewer, deeper projects — each proving a different strength.
             </h2>
           </Reveal>
@@ -342,11 +341,11 @@ export default function Home() {
           id="how"
           className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
         >
-          <Reveal className="max-w-[44ch]">
+          <Reveal>
             <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
               How I work
             </div>
-            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+            <h2 className="mt-4 max-w-[44ch] text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
               Six habits I lean on when a product gets complicated.
             </h2>
           </Reveal>
@@ -437,11 +436,11 @@ export default function Home() {
           id="words"
           className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
         >
-          <Reveal className="max-w-[44ch]">
+          <Reveal>
             <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
               In their words
             </div>
-            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+            <h2 className="mt-4 max-w-[44ch] text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
               What it&apos;s like to work with me.
             </h2>
           </Reveal>
@@ -474,13 +473,13 @@ export default function Home() {
           id="contact"
           className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)] pb-[clamp(4rem,8vw,7rem)]"
         >
-          <Reveal className="max-w-[30ch]">
-            <h2 className="text-balance font-display text-[clamp(2.2rem,5vw+0.4rem,4.4rem)] leading-[1.04] font-bold tracking-[-.03em] text-fg">
+          <Reveal>
+            <h2 className="max-w-[22ch] text-balance font-display text-[clamp(2.2rem,5vw+0.4rem,4.4rem)] leading-[1.04] font-bold tracking-[-.03em] text-fg">
               Have a complex product that needs to feel <span className="text-gold">simple</span>?
             </h2>
           </Reveal>
-          <Reveal className="mt-[1.8rem] max-w-[46ch]">
-            <p className="text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+          <Reveal className="mt-[1.8rem]">
+            <p className="max-w-[46ch] text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
               That&apos;s the work I like most. Tell me what you&apos;re building.
             </p>
           </Reveal>
