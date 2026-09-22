@@ -132,7 +132,7 @@
 .grain-layer {
   background-image: url("/textures/grain.png");
   background-repeat: repeat;
-  opacity: 0.5;
+  opacity: 0.18;
   mix-blend-mode: overlay;
 }
 
