@@ -500,6 +500,13 @@ export default function Home() {
             >
               LinkedIn
             </a>
+            <a
+              href="/files/Julius-Abaabagre-CV.pdf"
+              download
+              className="border-b border-line-2 pb-[.2rem] font-display text-base font-medium text-fg transition-colors hover:border-gold hover:text-gold"
+            >
+              Download CV
+            </a>
           </Reveal>
 
           <ContactForm />
