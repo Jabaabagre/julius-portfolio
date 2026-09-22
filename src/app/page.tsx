@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Reveal } from "@/components/reveal";
 import { NodeMotif } from "@/components/node-motif";
+import { ProjectRow } from "@/components/project-row";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
@@ -60,7 +62,109 @@ export default function Home() {
           </span>
         </div>
 
-        <section id="work" className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]" />
+        <section
+          id="work"
+          className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]"
+        >
+          <Reveal className="max-w-[44ch]">
+            <div className="font-display text-[.78rem] font-semibold tracking-[.14em] text-gold uppercase">
+              Selected work
+            </div>
+            <h2 className="mt-4 text-pretty font-display text-[clamp(1.8rem,3vw+0.8rem,2.8rem)] leading-[1.1] font-semibold tracking-[-.025em] text-fg">
+              Fewer, deeper projects — each proving a different strength.
+            </h2>
+          </Reveal>
+
+          <ProjectRow
+            href="/vicinity"
+            title="Vicinity"
+            description="A neighbourhood bulletin board for local news, events, discussions, and alerts — four kinds of post that all had to read clearly in one feed."
+            imageSrc="/images/vicinity-feed.png"
+            imageAlt="Vicinity — the community feed, filtered by category"
+            imageWidth={2000}
+            imageHeight={1500}
+            details={[
+              {
+                label: "Core challenge",
+                value:
+                  "A single feed carrying news, events, discussions, and alerts — each needing different urgency without four different layouts.",
+              },
+              {
+                label: "My contribution",
+                value:
+                  "Visual design and prototyping: the design language, the component library, and the responsive behaviour across screen sizes.",
+              },
+              {
+                label: "Approach",
+                value:
+                  "Research and personas first, then low- and mid-fidelity wireframes to validate the feed, post detail, and create flows before any polish.",
+              },
+              {
+                label: "Outcome",
+                value:
+                  "In testing, people could tell the four post types apart at a glance and completed the create-post flow unprompted.",
+              },
+            ]}
+            meta="Visual design, prototyping & design system · Mobile · 2025/2026"
+          />
+
+          <ProjectRow
+            href="/convo"
+            title="Convo"
+            description="A mobile messaging app built to WCAG standards, where accessibility sits in the main settings list rather than buried three screens down."
+            imageSrc="/images/convo-hero-mockup.png"
+            imageAlt="Convo — the chat list on a phone"
+            imageWidth={4096}
+            imageHeight={3072}
+            details={[
+              {
+                label: "Core challenge",
+                value:
+                  "Accessibility features that exist but nobody finds — buried under submenus, so the people who need them never switch them on.",
+              },
+              {
+                label: "Approach",
+                value:
+                  "Promote the controls to the top of settings and give each one a plain-language label, so the setting reads as an option rather than a preference file.",
+              },
+              {
+                label: "Outcome",
+                value:
+                  "Large text, dark mode, flash for calls, and voice typing all sit one tap from the profile screen, and every state passes WCAG AA contrast against the app's blue.",
+              },
+            ]}
+            meta="Product & UX · Accessibility · 2025/2026"
+          />
+
+          <ProjectRow
+            href="/lets-eat"
+            title="Let's Eat"
+            description="A food ordering app where the whole decision — dish, rating, price, and wait — fits in one row, so ordering takes a scroll rather than a sequence of screens."
+            imageSrc="/images/letseat-home.png"
+            imageAlt="Let's Eat — the home screen with promotions and the order list"
+            imageWidth={2000}
+            imageHeight={1500}
+            details={[
+              {
+                label: "Core challenge",
+                value:
+                  "Four facts per dish — rating, price, prep time, and a way to save it — without the list turning into a wall.",
+              },
+              {
+                label: "Approach",
+                value:
+                  "One row per dish: photo left, name and facts stacked in the middle, the commit action held to the right where the thumb lands.",
+              },
+              {
+                label: "Outcome",
+                value:
+                  "Browsing to ordering collapsed into a single screen, and the same dish row held up unchanged across search, favourites, and promotions.",
+              },
+            ]}
+            meta="Product & UX · Mobile commerce · 2025/2026"
+          />
+        </section>
+
         <section id="about" className="mx-auto max-w-[76rem] px-[clamp(1.4rem,5vw,4rem)] pt-[clamp(5rem,11vw,10rem)]" />
       </main>
 
