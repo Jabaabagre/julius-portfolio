@@ -159,7 +159,7 @@ export function NodeMotif() {
   return (
     <div
       aria-hidden="true"
-      className="mx-auto hidden w-full max-w-[460px] opacity-55 min-[901px]:block"
+      className="pointer-events-none absolute top-0 right-0 z-0 w-[62vw] max-w-[240px] opacity-25 min-[901px]:static min-[901px]:mx-auto min-[901px]:w-full min-[901px]:max-w-[460px] min-[901px]:opacity-55"
     >
       <svg
         ref={svgRef}
