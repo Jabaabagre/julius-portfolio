@@ -316,6 +316,7 @@ export default function Home() {
                       src="/images/julius-portrait.webp"
                       alt="Julius Abaabagre"
                       fill
+                      unoptimized
                       sizes="(min-width: 768px) 40vw, 90vw"
                       className="object-contain object-bottom"
                     />
