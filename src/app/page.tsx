@@ -168,6 +168,39 @@ export default function Home() {
           </Reveal>
 
           <ProjectRow
+            href="/entra"
+            title="Entra"
+            description="AmaliTech's internal staffing platform — I designed the applicant side: browsing open roles, checking your fit, and applying, so sixteen live roles read as one consistent flow instead of sixteen different forms."
+            imageSrc="/images/entra-hero.png"
+            imageAlt="Entra — the open roles list on a laptop, showing sixteen available internal projects"
+            imageWidth={1840}
+            imageHeight={1380}
+            details={[
+              {
+                label: "Core challenge",
+                value:
+                  "Sixteen open roles across different client projects, each needing to be sized up fast enough that applying doesn't feel like a research project.",
+              },
+              {
+                label: "My contribution",
+                value:
+                  "Product and UX design for the applicant flow — the role listing, the detail and fit-assessment screen, the application form, and application tracking.",
+              },
+              {
+                label: "Approach",
+                value:
+                  "Reused one list-row and one detail-page pattern across every role, and moved the fit check ahead of the apply button instead of after it.",
+              },
+              {
+                label: "Outcome",
+                value:
+                  "CV import and a 500-character justification field replaced a full form, and every submitted application got its own trackable, reversible page.",
+              },
+            ]}
+            meta="Product & UX design · Internal platform · 2025/2026"
+          />
+
+          <ProjectRow
             href="/vicinity"
             title="Vicinity"
             description="A neighbourhood bulletin board for local news, events, discussions, and alerts — four kinds of post that all had to read clearly in one feed."

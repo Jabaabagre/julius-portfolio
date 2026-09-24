@@ -170,9 +170,9 @@ export default function ConvoPage() {
           </CaseSection>
 
           <NextProjectNav
-            text="Next: Vicinity, a neighbourhood bulletin board."
-            nextHref="/vicinity"
-            nextLabel="Read the Vicinity case study"
+            text="Next: Let's Eat, a food ordering app where the whole decision fits in one row."
+            nextHref="/lets-eat"
+            nextLabel="Read the Let's Eat case study"
           />
         </CaseBody>
       </main>

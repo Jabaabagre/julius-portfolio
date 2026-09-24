@@ -153,9 +153,9 @@ export default function LetsEatPage() {
           </CaseSection>
 
           <NextProjectNav
-            text="Next: Convo, a messaging app built to WCAG standards."
-            nextHref="/convo"
-            nextLabel="Read the Convo case study"
+            text="Next: Entra, an internal staffing platform seen from the applicant side."
+            nextHref="/entra"
+            nextLabel="Read the Entra case study"
           />
         </CaseBody>
       </main>
