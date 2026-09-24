@@ -284,8 +284,7 @@ export default function Home() {
                       alt="Julius Abaabagre"
                       fill
                       sizes="(min-width: 768px) 40vw, 90vw"
-                      className="object-cover object-[center_bottom]"
-                      style={{ transform: "scale(1.1) translateY(5%)", transformOrigin: "center bottom" }}
+                      className="object-contain object-bottom"
                     />
                   </div>
                   <div className="mt-[1.1rem] font-display text-[1.05rem] font-semibold tracking-[-.01em] text-fg">
