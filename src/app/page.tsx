@@ -313,7 +313,7 @@ export default function Home() {
                     }}
                   >
                     <Image
-                      src="/images/julius-portrait.png"
+                      src="/images/julius-portrait.webp"
                       alt="Julius Abaabagre"
                       fill
                       sizes="(min-width: 768px) 40vw, 90vw"
