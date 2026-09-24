@@ -170,16 +170,16 @@ export default function Home() {
           <ProjectRow
             href="/entra"
             title="Entra"
-            description="AmaliTech's internal staffing platform — I designed the applicant side: browsing open roles, checking your fit, and applying, so sixteen live roles read as one consistent flow instead of sixteen different forms."
+            description="A platform for browsing open roles and applying to them — I designed the applicant side: browsing, checking your fit, and applying, so sixteen live roles read as one consistent flow instead of sixteen different forms."
             imageSrc="/images/entra-hero.png"
-            imageAlt="Entra — the open roles list on a laptop, showing sixteen available internal projects"
+            imageAlt="Entra — the open roles list on a laptop, showing sixteen available roles"
             imageWidth={1840}
             imageHeight={1380}
             details={[
               {
                 label: "Core challenge",
                 value:
-                  "Sixteen open roles across different client projects, each needing to be sized up fast enough that applying doesn't feel like a research project.",
+                  "Sixteen open roles across different projects, each needing to be sized up fast enough that applying doesn't feel like a research project.",
               },
               {
                 label: "My contribution",

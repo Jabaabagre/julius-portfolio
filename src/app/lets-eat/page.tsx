@@ -153,7 +153,7 @@ export default function LetsEatPage() {
           </CaseSection>
 
           <NextProjectNav
-            text="Next: Entra, an internal staffing platform seen from the applicant side."
+            text="Next: Entra, a platform for browsing open roles and applying, seen from the applicant side."
             nextHref="/entra"
             nextLabel="Read the Entra case study"
           />
