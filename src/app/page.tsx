@@ -511,7 +511,7 @@ export default function Home() {
             </h2>
           </Reveal>
           <Reveal className="mt-[1.8rem]">
-            <p className="max-w-[46ch] text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+            <p className="text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
               That&apos;s the work I like most. Tell me what you&apos;re building.
             </p>
           </Reveal>

@@ -46,7 +46,7 @@ export function ProjectRow({
         </Link>
       </div>
 
-      <p className="mt-[1.4rem] max-w-[62ch] text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
+      <p className="mt-[1.4rem] text-[clamp(1rem,0.35vw+0.95rem,1.12rem)] leading-[1.62] text-muted">
         {description}
       </p>
 

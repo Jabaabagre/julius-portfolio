@@ -25,7 +25,7 @@ export function CaseHero({
       <h1 className="mt-[1.2rem] animate-[om-rise_.7s_cubic-bezier(.2,.7,.2,1)_.06s_both] font-display text-[clamp(2.9rem,7vw+0.5rem,7rem)] leading-[.98] font-bold tracking-[-.035em] text-fg">
         {title}
       </h1>
-      <p className="mt-[1.6rem] max-w-[42ch] animate-[om-rise_.7s_cubic-bezier(.2,.7,.2,1)_.12s_both] text-pretty font-accent text-[clamp(1.25rem,2vw,1.8rem)] leading-[1.32] text-muted italic">
+      <p className="mt-[1.6rem] max-w-[52ch] animate-[om-rise_.7s_cubic-bezier(.2,.7,.2,1)_.12s_both] text-pretty font-accent text-[clamp(1.25rem,2vw,1.8rem)] leading-[1.32] text-muted italic">
         {tagline}
       </p>
       <div className="mt-[clamp(2.5rem,5vw,4rem)] overflow-hidden rounded-[18px] border border-line bg-bg-raise">
